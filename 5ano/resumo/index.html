@@ -1,0 +1,177 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cidades Sob Alerta | 5º Ano</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet"><style>
+:root{--navy:#764897;--navy-dark:#0B0B14;--offwhite:#F5F2F8;--paper:#FFFFFF;--amber:#DBE7FF;--amber-pale:rgba(118,72,151,.14);--navy-pale:#DBE7FF;--grey-l:rgba(11,11,20,.12);--grey-d:#0B0B14}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--offwhite);color:var(--grey-d);font:16px/1.6 Figtree,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+
+/* mobile-first base: single column, compact header, touch-sized controls */
+header{background:linear-gradient(115deg,var(--navy-dark),var(--navy));color:white;padding:18px 20px 40px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand small{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;opacity:.8;font-family:Figtree,sans-serif}
+.hero{margin:28px auto 0;max-width:1100px}
+.tag{display:inline-block;background:#ffffff22;border:1px solid #ffffff55;border-radius:30px;padding:5px 14px;font-size:11px;letter-spacing:.5px;font-weight:600}
+h1{font-family:Poppins,sans-serif;font-size:clamp(28px,7.5vw,60px);letter-spacing:-.03em;line-height:1.12;margin:14px 0}
+header p{font-size:16px;max-width:760px}
+main{margin:-20px auto 50px;padding:0 14px;max-width:1150px}
+.facts{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:center;max-width:100%;margin:22px auto 0}
+.facts::-webkit-scrollbar{display:none}
+.facts span{background:var(--paper);border-radius:10px;padding:7px 9px;box-shadow:0 5px 25px #0001;font-weight:700;font-size:10.5px;color:var(--navy);white-space:nowrap;flex:0 0 auto}
+.toolbar{margin:14px 0}
+.toolbar button{width:100%}
+.toolbar button,.actions button{background:var(--navy);border:0;border-radius:10px;color:white;padding:13px 16px;font-weight:700;cursor:pointer;font-family:Figtree,sans-serif;font-size:15px;min-height:46px}
+.layout{display:block}
+nav{position:static;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;margin:14px 0;background:var(--paper);border:1px solid var(--grey-l);border-radius:14px;padding:8px;scrollbar-width:thin}
+nav button{flex:0 0 auto;min-width:160px;white-space:nowrap;background:none;border:0;text-align:left;padding:12px 14px;border-radius:8px;cursor:pointer;color:var(--grey-d);font-size:13px;font-family:Figtree,sans-serif;min-height:44px}
+nav button.active,nav button:hover{background:var(--navy-pale);color:var(--navy);font-weight:700}
+article{background:var(--paper);border:1px solid var(--grey-l);border-radius:16px;padding:20px;min-height:0;box-shadow:0 7px 25px #00000008}
+section{display:none}section.active{display:block}
+h2{font-family:Poppins,sans-serif;font-size:clamp(22px,5.5vw,32px);line-height:1.22;letter-spacing:-.02em;margin:0 0 18px;color:var(--navy)}
+p{margin:0 0 15px}
+.item{padding:12px 0;border-bottom:1px solid rgba(11,11,20,.1)}
+.item:last-child{border:0}
+.item.check{display:flex;gap:12px;align-items:flex-start}
+.item input{margin-top:7px;width:20px;height:20px;accent-color:var(--navy);flex:0 0 auto}
+.question{background:var(--navy-pale);padding:18px;border-radius:14px;margin-bottom:14px;font-size:18px;font-weight:700;color:var(--navy)}
+.question strong{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:5px;opacity:.75}
+.question.gold{background:var(--amber-pale)}
+.subhead{font-family:Poppins,sans-serif;font-weight:700;font-size:15px;color:var(--navy);margin:20px 0 6px;letter-spacing:-.01em}
+.item:first-child .subhead,p+.subhead,h2+.subhead{margin-top:0}
+.actions{display:flex;align-items:center;justify-content:space-between;margin-top:22px;gap:8px;flex-wrap:wrap}
+.actions span{font-size:13px;color:rgba(11,11,20,.55);order:1;flex:0 0 100%;text-align:center}
+.actions #prev{order:0}.actions #next{order:2}
+.actions button{flex:1 1 auto}
+.actions button:disabled{opacity:.35;cursor:default}
+.note{font-size:13px;color:rgba(11,11,20,.55);border-top:1px solid rgba(11,11,20,.12);padding-top:15px;margin-top:24px}
+
+/* tablet and up: two-column layout, roomier spacing, sticky side nav */
+@media(min-width:720px){
+header{padding:24px 5vw 65px}
+.brand{font-size:21px}
+.brand small{font-size:11px;letter-spacing:2px}
+.hero{margin:50px auto 0}
+.tag{padding:5px 15px;font-size:12px;letter-spacing:1px}
+h1{margin:18px 0}
+header p{font-size:19px}
+main{margin:-28px auto 70px;padding:0 20px}
+.facts span{padding:12px 18px;font-size:13px}
+.toolbar{text-align:right}
+.toolbar button{width:auto}
+.toolbar button,.actions button{padding:10px 17px;font-size:16px;min-height:0}
+.layout{display:grid;grid-template-columns:250px 1fr;gap:25px}
+nav{align-self:start;position:sticky;top:15px;overflow:visible;margin:0}
+nav button{display:block;width:100%;min-width:0;padding:10px 12px;min-height:0}
+article{padding:clamp(22px,4vw,44px);min-height:540px}
+h2{margin:0 0 26px}
+p{margin:0 0 17px}
+.question{padding:22px;font-size:21px}
+.subhead{font-size:17px;margin:26px 0 8px}
+.actions span{order:0;flex:0 0 auto;text-align:left}
+.actions #prev{order:0}.actions #next{order:0}
+.actions button{flex:0 0 auto}
+}
+@media print{header{background:white;color:var(--navy);padding:15px}.toolbar,nav,.actions{display:none}.layout{display:block}main{margin:0}article{padding:0;border:0;box-shadow:none}section{display:block!important;break-before:page}section:first-child{break-before:auto}.item{break-inside:avoid}}
+</style></head><body><header><div class="brand">Intercriativa Lab<small>5º Ano · Resumo do projeto</small></div><div class="hero"><span class="tag">5º ANO · 1º TRIMESTRE</span><h1>Cidades sob Alerta<br>Quem vai contribuir com o amanhã? 🏙️</h1><p>As cidades crescem rápido e os problemas se espalham de um sistema para o outro. Investigamos essas falhas na nossa cidade e criamos soluções para quem mais sente seus efeitos.</p><div class="facts"><span>5º Ano</span><span>12 semanas</span><span>Cidades Sob Alerta</span><span>ODS 11</span></div></div></header><main><div class="layout"><nav id="nav"></nav><article><div id="content"></div><div class="actions"><button id="prev">← Anterior</button><span id="counter"></span><button id="next">Próxima →</button></div></article></div></main><script>const sections=[
+{"title": "Pergunta norteadora e missão", "items": [
+"PERGUNTA NORTEADORA: As cidades estão crescendo rápido, e o crescimento traz problemas que se espalham de um sistema para outro. Como podemos investigar essas falhas na nossa cidade e descobrir quem elas impactam e como?",
+"MISSÃO: Como podemos ajudar quem mais sente uma falha do nosso território — no transporte, na água, na energia, nos resíduos, na saúde, nas áreas verdes, na tecnologia ou na acessibilidade — a viver numa cidade que também funcione para ele?"
+]},
+{"title": "Resumo do projeto", "items": [
+"No projeto \"Cidades sob Alerta: Quem vai contribuir com o amanhã?\", os alunos do 5º ano investigam a cidade como um sistema de sistemas ligados entre si: quando um deles falha, o problema se espalha para os outros. Partindo da pergunta norteadora, eles observam o próprio bairro, coletam dados, entrevistam moradores e comparam a nossa cidade com outras cidades brasileiras e do mundo.",
+"Em equipes, cada grupo assume um dos oito sistemas urbanos — mobilidade; água e saneamento; energia; resíduos; saúde e bem-estar; áreas verdes e clima; tecnologia e comunicação; acessibilidade e espaços públicos —, escolhe dentro dele um problema real e cria protótipos de soluções sustentáveis e inovadoras, que passam por três rodadas de exposição e crítica ao longo do trimestre e são melhorados a cada rodada.",
+"Ao final, apresentam suas propostas a uma audiência real — famílias, colegas de outras turmas e representantes da comunidade e, quando possível, do poder público local —, mostrando quem é atingido por cada falha e como suas ideias podem melhorar a vida na cidade."
+]},
+{"title": "Justificativa", "items": [
+"A rápida urbanização e o avanço tecnológico apresentam desafios e oportunidades para o futuro das cidades. Segundo a Carta Brasileira para Cidades Inteligentes, cidades inteligentes utilizam tecnologia de forma planejada, inovadora e inclusiva para solucionar problemas urbanos, reduzir desigualdades e melhorar a qualidade de vida.",
+"Para a criança do 5º ano, esse tema não é distante: ele aparece no trajeto até a escola, no transporte que utiliza, no destino do lixo de sua casa, na praça onde brinca e no calor das ruas sem árvores. Aprender isso agora faz sentido porque, nessa etapa, os alunos já leem e comparam dados, argumentam e participam de decisões coletivas, e o projeto coloca essas habilidades a serviço de escolhas reais sobre o lugar onde vivem.",
+"A iniciativa também se alinha ao ODS 11 da ONU, que propõe \"tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis\", incentivando os estudantes a refletirem sobre o papel da tecnologia e da participação cidadã na transformação urbana e na melhoria da qualidade de vida da população."
+]},
+{"title": "Lançamento do projeto", "items": [
+"Este é um lançamento de simulação sistêmica, aberto por uma carta que chega do futuro.",
+"O estudante do 5º ano já pode lidar com relações mais complexas de causa e consequência. Por isso, em vez de apenas mostrar problemas urbanos, o Dia 1 faz três coisas em sequência: desperta a curiosidade (a carta de 2075), faz viver como um sistema prejudica o outro (as rodadas de alertas sucessivos) e dá à turma um lugar para ver isso acontecendo (o mapa da cidade fictícia). Nada é explicado antes de ser vivido — a palavra «sistema» não é dita pelo educador antes da segunda parte.",
+"## MOMENTO 1 — A carta de 2075 (curiosidade)",
+"O educador entra em sala com um envelope e lê em voz alta uma carta escrita por alguém que mora nesta mesma cidade no ano de 2075 e que se dirige à turma de hoje. A carta agradece por uma decisão tomada «no ano em que vocês estavam no 5º ano»; descreve uma cidade em que o ônibus chega, a água não falta em agosto e a praça tem sombra; e diz, de passagem, que «quase não foi assim». A carta não revela qual foi a decisão e termina com uma pergunta dirigida à turma: «o que vocês viram naquele ano que ninguém mais estava olhando?»",
+"O educador não responde e não interpreta. Cada estudante escreve sozinho, em uma linha, o que ficou com vontade de descobrir. A carta é recolhida e guardada em envelope lacrado, visível na sala, para ser reaberta na Semana 12.",
+"## MOMENTO 2 — As rodadas de alertas sucessivos (como um sistema prejudica o outro)",
+"Organize a turma em oito equipes que representam os oito sistemas urbanos do projeto: Mobilidade; Água e saneamento; Energia; Resíduos; Saúde e bem-estar; Áreas verdes e clima; Tecnologia e comunicação; Acessibilidade e espaços públicos. Cada equipe recebe um painel simples com três campos: Nossa função na cidade · Do que precisamos para funcionar · Quem depende de nós.",
+"Rodada 0 — A cidade funciona. Apresente o mapa simplificado de uma cidade fictícia, com escola, hospital, moradias, comércio, parque, ruas, rio, pontos de ônibus e serviços públicos. Diga: «neste momento, a cidade está funcionando normalmente». Cada equipe identifica em voz alta duas ou três relações. Este mapa será o tabuleiro dos alertas.",
+"Alerta 1 — Chuva intensa. Uma chuva forte bloqueia duas vias importantes. Pergunte primeiro à equipe Mobilidade: o que muda? Depois às demais: isso chega até vocês?",
+"Alerta 2 — Falta de energia. Uma região fica sem energia por várias horas. O problema pertence só à equipe de Energia? Semáforos, comércio, comunicação e bombeamento de água entram na conversa.",
+"Alerta 3 — Calor extremo. A temperatura sobe numa área com pouca vegetação e muito asfalto. Quem é afetado? Que sistema poderia ajudar?",
+"Alerta 4 — A cidade que não funciona para todos. Apresente Marina, que usa cadeira de rodas e precisa ir de casa até a unidade de saúde, com calçada interrompida, degrau, travessia sem sinalização e ônibus não acessível. A cidade está funcionando se funciona só para a maioria?",
+"Alerta 5 — A solução tecnológica. A prefeitura propõe câmeras e sensores em todas as ruas. Isso resolveria algum problema? Criaria algum novo? Quem teria acesso aos dados?",
+"Ao final das cinco rodadas o mapa está coberto de linhas. Pergunte apenas: «o que vocês estão percebendo?» Só depois que a turma disser, com as próprias palavras, que mexer em uma parte da cidade pode afetar muitas outras, o educador nomeia essa rede de sistemas — que em outra aula será chamada de grafo.",
+"## MOMENTO 3 — Da cidade fictícia para a cidade real",
+"Este é o momento mais importante do Dia 1. Retire o mapa fictício e coloque no seu lugar uma fotografia, um mapa ou um dado real da cidade onde a escola está. Diga: «a cidade da simulação estava nos dando sinais o tempo todo. A nossa cidade também dá sinais todos os dias.» Pergunte: que sinais conseguimos perceber? O que funciona bem? Estamos olhando para opiniões ou para evidências?",
+"Inaugure o cartaz CIDADE EM ALERTA · O que percebemos — O que precisamos investigar, que se desdobra no cartaz permanente Sabemos / Precisamos Saber / Próximos Passos, com as palavras dos próprios estudantes.",
+"## Registro individual",
+"Antes de qualquer conversa final, cada estudante abre o Caderno de Campo e responde à rotina Vejo · Penso · Me pergunto: um sinal que vi na nossa cidade, o que penso sobre ele e uma pergunta que quero investigar. É o primeiro registro do trimestre e volta na Semana 12, junto com o envelope da carta.",
+"## Fechamento",
+"Cada estudante lê uma frase de saída no formato «quando o sistema ___ parou, quem sentiu primeiro foi ___». Em seguida, afixe a Pergunta Norteadora acima do cartaz, onde permanecerá pelas doze semanas, e encerre: «antes de propor mudanças para a cidade, teremos um desafio mais difícil: compreender os problemas da cidade de hoje.»"
+]},
+{"title": "Expectativas de aprendizagem", "items": [
+"Ao longo do projeto, espera-se que os alunos:",
+"• Expliquem, com exemplos observados na própria cidade ou bairro, por que uma falha em um sistema urbano se espalha para os outros.",
+"• Identifiquem, no território investigado, os desafios de pelo menos um dos oito sistemas urbanos, nomeando quem é atingido por cada um.",
+"• Analisem as interações entre fatores sociais, econômicos e ambientais na cidade investigada, apontando os dados que sustentam a análise.",
+"• Investiguem um problema urbano específico e proponham uma solução baseada nas evidências que a própria equipe coletou.",
+"• Interpretem e organizem dados de campo em tabelas e gráficos, escrevendo a conclusão que cada representação sustenta.",
+"• Comparem informações de fontes diferentes sobre o mesmo fato urbano e decidam, com critério declarado, em qual confiar.",
+"• Relacionem conceitos de matemática, ciências, história, geografia e artes na explicação de um mesmo problema urbano.",
+"• Comuniquem a proposta da equipe a uma audiência real, usando o recurso — impresso, físico ou digital — mais adequado à mensagem.",
+"• Avaliem a própria solução quanto ao impacto social, ambiental e econômico, justificando por que ela funciona também para quem é mais atingido."
+]},
+{"title": "Linhas de investigação", "items": [
+"8 linhas de investigação do trimestre. Cada equipe assume uma delas como recorte. Governança, segurança, economia local e infraestrutura não são linhas separadas: são aspectos que atravessam os oito sistemas e devem ser investigados dentro do sistema escolhido.",
+"• Mobilidade: transporte público, fluxo de veículos e pedestres, sinalização, tempo de deslocamento e quem fica sem alternativa.",
+"• Água e saneamento: abastecimento, esgoto, drenagem, alagamentos, perdas e consumo consciente.",
+"• Energia: geração, distribuição, quedas de fornecimento, iluminação pública, consumo e fontes renováveis.",
+"• Resíduos: geração, coleta, separação, reciclagem, compostagem, descarte irregular e cooperativas de catadores.",
+"• Saúde e bem-estar: acesso a serviços de saúde, poluição, ruído, qualidade do ar e ambientes que adoecem ou cuidam.",
+"• Áreas verdes e clima: arborização, sombra, temperatura, permeabilidade do solo, praças e ilhas de calor.",
+"• Tecnologia e comunicação: digitalização de serviços, sensores e dados urbanos, conectividade, transparência pública e canais de participação.",
+"• Acessibilidade e espaços públicos: calçadas, rampas, travessias, iluminação, segurança e uso do espaço público por todos os corpos e idades."
+]},
+{"title": "Conhecimento-chave", "items": [
+"Conceitos essenciais: sistema urbano; interdependência; problema urbano; qualidade de vida; sustentabilidade; dados e evidências; inclusão e acessibilidade; tecnologia a serviço de um problema real; protótipo.",
+"## Compreensões duradouras",
+"• A cidade funciona como um sistema de sistemas: mexer em uma parte pode afetar muitas outras, e por isso um alerta raramente pertence a um serviço só.",
+"• A forma como uma cidade cresce e se organiza afeta diretamente a qualidade de vida de todos os seus habitantes.",
+"• Tecnologia e práticas inovadoras só melhoram uma cidade quando resolvem problemas reais das pessoas, de modo sustentável.",
+"• Uma solução urbana só é boa quando é inclusiva: precisa funcionar para todos os habitantes, não apenas para alguns.",
+"• Decisões sobre a cidade são melhores quando baseadas em dados e evidências, e não apenas em opiniões."
+]},
+{"title": "Desafio e produto final", "items": [
+"Vocês estão sendo contratados como consultores especialistas. A missão de vocês é investigar um dos problemas que atingem a nossa cidade e propor uma solução que funcione também para quem é mais afetado por ele.",
+"## Regras do desafio",
+"1. Identifiquem um problema específico e quem ele atinge: escolham, dentro do sistema urbano da sua equipe, um problema real da nossa cidade, investiguem suas causas com dados e evidências e nomeiem os grupos de moradores que mais sofrem com ele.",
+"2. Proponham uma solução sustentável e inovadora: desenvolvam uma ideia que combine tecnologia e práticas sustentáveis para resolver o problema escolhido.",
+"3. Considerem o impacto social, ambiental e econômico: expliquem como a solução atende às necessidades dos moradores que vocês nomearam, respeitando o meio ambiente e gerando impacto positivo na economia local.",
+"4. Construam o produto final: cada equipe desenvolve um protótipo da sua solução — modelo físico com materiais recicláveis, simulação digital, maquete ou representação conceitual. Evidências mínimas: diagnóstico do problema com os dados coletados, protótipo e explicação de como a solução funciona.",
+"5. Testem, recebam críticas e melhorem: o produto passa por rascunho, revisões após as Gallery Walks das semanas 5 (diagnóstico), 9 (protótipo v1) e 11 (ensaio geral com a rubrica) e versão final, incorporando o feedback de colegas, professores e usuários reais.",
+"6. Apresentem para uma audiência real: na semana de apresentação, as equipes mostram seus protótipos e propostas para famílias, colegas de outras turmas e representantes da comunidade e, quando possível, do poder público local.",
+"Conectem-se com o futuro: ao planejar sua solução, respondam — como isso evitaria o alerta que a nossa turma mapeou na simulação de abertura? Como essa solução pode transformar a qualidade de vida na cidade para as próximas gerações?",
+"O que vocês fizerem hoje poderá contribuir com o mundo de amanhã. Por onde irão começar?"
+]},
+{"title": "Voz e escolha do aluno", "items": [
+"• Escolha do problema urbano: os alunos escolhem o problema específico que querem abordar em sua cidade, como gestão de resíduos, mobilidade urbana ou energia renovável.",
+"• Definição do campo de ação: cada grupo decide quais aspectos do problema serão priorizados e quais tecnologias ou práticas sustentáveis serão exploradas.",
+"• Formatos de apresentação: os alunos têm liberdade para criar protótipos, apresentações multimodais (vídeos, maquetes digitais, posters interativos) ou campanhas comunitárias.",
+"• Pesquisa autônoma: os grupos definem as perguntas \"Need to Know\" e planejam como buscar informações, incluindo entrevistas, estudos de caso e visitas a locais relevantes.",
+"• Papéis no grupo: cada membro escolhe uma função no grupo, de acordo com seus interesses e habilidades.",
+"• Audiência da equipe: cada grupo decide a quem quer dirigir sua proposta — famílias, outra turma, a comunidade do bairro ou o poder público local — e adapta a mensagem a esse público.",
+"• Critérios de qualidade: a turma co-constrói com o educador a rubrica que vai avaliar os produtos finais, decidindo o que caracteriza um trabalho bem feito antes de produzi-lo."
+]},
+{"title": "Objetivos de Desenvolvimento Sustentável", "items": [
+"ODS 11: Cidades e Comunidades Sustentáveis",
+"Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis. O projeto conecta esse objetivo ao dia a dia dos alunos: o trajeto até a escola, o transporte que usam, o destino do lixo de casa, a praça onde brincam e o calor das ruas sem árvores."
+]},
+{"title": "Possibilidades de pesquisa de campo e atividades de campo", "items": [
+"• Visita a um centro de reciclagem, usina de compostagem ou cooperativa de catadores, para observar o ciclo dos resíduos e produzir registro no Caderno de Campo com propostas para a escola e a comunidade.",
+"• Visita à Prefeitura ou Câmara Municipal, ou entrevista com um vereador ou servidor público, para observar como uma decisão pública é tomada e registrar um quadro \"o que a cidade já decidiu sobre o nosso problema\".",
+"• Conhecer iniciativas sociais da comunidade (ONGs, associações de bairro ou projetos comunitários) e produzir um quadro de aprendizados que inspire as soluções das equipes.",
+"• Exploração de um bairro ou comunidade local para observar problemas urbanos reais, coletar dados e criar um relatório com propostas.",
+"• Observação do trânsito e da segurança no entorno da escola, produzindo contagens e registros simples que alimentem o diagnóstico das equipes.",
+"• Visita a um comércio, prédio ou empresa que use tecnologia no dia a dia, para observar automação, economia de energia e atendimento digital.",
+"• Visita a uma usina de energia renovável, a uma casa ou escola com painéis solares, ou observação da iluminação pública do entorno, para entender geração, distribuição e desperdício de energia.",
+"• Visita a um terminal de ônibus, ponto central de transporte ou estação, para observar funcionamento, acessibilidade e fluxo de passageiros.",
+"• Exploração de áreas com diferentes qualidades ambientais (um local arborizado e outro sem vegetação), comparando temperatura, sombra, ruído e sensação térmica.",
+"• Visita a um escritório de urbanista, engenheiro ou profissional de planejamento da prefeitura, para observar como especialistas analisam e planejam o espaço urbano."
+]}
+];const nav=document.getElementById('nav'),content=document.getElementById('content');let active=0;sections.forEach((s,i)=>{let b=document.createElement('button');b.textContent=s.title;b.onclick=()=>show(i);nav.appendChild(b);let sec=document.createElement('section');let h=document.createElement('h2');h.textContent=s.title;sec.appendChild(h);s.items.forEach((line)=>{let el=document.createElement('div');if(line.startsWith('• ')){el.className='item check';let input=document.createElement('input');input.type='checkbox';input.setAttribute('aria-label','Marcar item');let span=document.createElement('span');span.textContent=line.slice(2);el.append(input,span)}else if(line.startsWith('## ')){el.className='subhead';el.textContent=line.slice(3)}else if(/^\d+\. /.test(line)){el.className='item';el.textContent=line}else if(line.startsWith('PERGUNTA NORTEADORA:')||line.startsWith('MISSÃO:')){el.className='question'+(line.startsWith('MISSÃO:')?' gold':'');let [k,...v]=line.split(':');let strong=document.createElement('strong');strong.textContent=k;let txt=document.createElement('div');txt.textContent=v.join(':').trim();el.append(strong,txt)}else{el=document.createElement('p');el.textContent=line}sec.appendChild(el)});content.appendChild(sec)});function show(i){active=Math.max(0,Math.min(i,sections.length-1));[...nav.children].forEach((x,j)=>x.classList.toggle('active',j===active));[...content.children].forEach((x,j)=>x.classList.toggle('active',j===active));document.getElementById('counter').textContent=(active+1)+' / '+sections.length;document.getElementById('prev').disabled=active===0;document.getElementById('next').disabled=active===sections.length-1;window.scrollTo({top:Math.min(window.scrollY,260),behavior:'smooth'})}document.getElementById('prev').onclick=()=>show(active-1);document.getElementById('next').onclick=()=>show(active+1);show(0);</script></body></html>
