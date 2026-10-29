@@ -3,8 +3,10 @@
 
 /* mobile-first base: single column, compact header, touch-sized controls */
 header{background:linear-gradient(115deg,var(--navy-dark),var(--navy));color:white;padding:18px 20px 40px}
-.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em}
-.brand small{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;opacity:.8;font-family:Figtree,sans-serif}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{display:block;width:clamp(155px,45vw,210px);height:auto;flex:0 1 auto}
+.brand-logo-dark{display:none}
+.brand small{display:block;min-width:0;font-size:10px;line-height:1.35;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;opacity:.8;font-family:Figtree,sans-serif}
 .hero{margin:28px auto 0;max-width:1100px}
 .tag{display:inline-block;background:#ffffff22;border:1px solid #ffffff55;border-radius:30px;padding:5px 14px;font-size:11px;letter-spacing:.5px;font-weight:600}
 h1{font-family:Poppins,sans-serif;font-size:clamp(28px,7.5vw,60px);letter-spacing:-.03em;line-height:1.12;margin:14px 0}
@@ -66,8 +68,8 @@ p{margin:0 0 17px}
 .actions #prev{order:0}.actions #next{order:0}
 .actions button{flex:0 0 auto}
 }
-@media print{header{background:white;color:var(--navy);padding:15px}.toolbar,nav,.actions{display:none}.layout{display:block}main{margin:0}article{padding:0;border:0;box-shadow:none}section{display:block!important;break-before:page}section:first-child{break-before:auto}.item{break-inside:avoid}}
-</style></head><body><header><div class="brand">Intercriativa Lab<small>5º Ano · Resumo do projeto</small></div><div class="hero"><span class="tag">5º ANO · 1º TRIMESTRE</span><h1>Cidades sob Alerta<br>Quem vai contribuir com o amanhã? 🏙️</h1><p>As cidades crescem rápido e os problemas se espalham de um sistema para o outro. Investigamos essas falhas na nossa cidade e criamos soluções para quem mais sente seus efeitos.</p><div class="facts"><span>5º Ano</span><span>12 semanas</span><span>Cidades Sob Alerta</span><span>ODS 11</span></div></div></header><main><div class="layout"><nav id="nav"></nav><article><div id="content"></div><div class="actions"><button id="prev">← Anterior</button><span id="counter"></span><button id="next">Próxima →</button></div></article></div></main><script>const sections=[
+@media print{header{background:white;color:var(--navy);padding:15px}.brand-logo-light{display:none}.brand-logo-dark{display:block}.toolbar,nav,.actions{display:none}.layout{display:block}main{margin:0}article{padding:0;border:0;box-shadow:none}section{display:block!important;break-before:page}section:first-child{break-before:auto}.item{break-inside:avoid}}
+</style></head><body><header><div class="brand"><img class="brand-logo brand-logo-light" src="../../assets/brand/intercriativa-metodologia-white.png" alt="Metodologia InterCriativa"><img class="brand-logo brand-logo-dark" src="../../assets/brand/intercriativa-metodologia-dark.png" alt="" aria-hidden="true"><small>5º Ano · Resumo do projeto</small></div><div class="hero"><span class="tag">5º ANO · 1º TRIMESTRE</span><h1>Cidades sob Alerta<br>Quem vai contribuir com o amanhã? 🏙️</h1><p>As cidades crescem rápido e os problemas se espalham de um sistema para o outro. Investigamos essas falhas na nossa cidade e criamos soluções para quem mais sente seus efeitos.</p><div class="facts"><span>5º Ano</span><span>12 semanas</span><span>Cidades Sob Alerta</span><span>ODS 11</span></div></div></header><main><div class="layout"><nav id="nav"></nav><article><div id="content"></div><div class="actions"><button id="prev">← Anterior</button><span id="counter"></span><button id="next">Próxima →</button></div></article></div></main><script>const sections=[
 {"title": "Pergunta norteadora e missão", "items": [
 "PERGUNTA NORTEADORA: As cidades estão crescendo rápido, e o crescimento traz problemas que se espalham de um sistema para outro. Como podemos investigar essas falhas na nossa cidade e descobrir quem elas impactam e como?",
 "MISSÃO: Como podemos ajudar quem mais sente uma falha do nosso território — no transporte, na água, na energia, nos resíduos, na saúde, nas áreas verdes, na tecnologia ou na acessibilidade — a viver numa cidade que também funcione para ele?"
